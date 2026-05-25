@@ -1,0 +1,26 @@
+name: Build EXE
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      - name: Instalar PyInstaller
+        run: pip install pyinstaller
+
+      - name: Empaquetar EXE
+        run: pyinstaller --onefile script.py
+
+      - name: Subir EXE
+        uses: actions/upload-artifact@v3
+        with:
+          name: script-exe
+          path: dist/script.exe
