@@ -7,7 +7,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v4
         with:
@@ -20,7 +20,7 @@ jobs:
         run: pyinstaller --onefile script.py
 
       - name: Subir EXE
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: script-exe
           path: dist/script.exe
