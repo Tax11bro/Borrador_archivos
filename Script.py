@@ -25,7 +25,7 @@ def borrar_archivos(ruta=None, extensiones=None):
 
     confirmar = input("\n¿Seguro que quieres borrarlos todos? (escribe SI para confirmar): ")
 
-    if confirmar.strip().upper() == "SI":
+    if confirmar is not None:
         borrados, errores = 0, 0
         for f in archivos:
             try:
